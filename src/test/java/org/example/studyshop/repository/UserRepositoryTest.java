@@ -1,7 +1,9 @@
 package org.example.studyshop.repository;
 
+import jakarta.transaction.Transactional;
 import org.example.studyshop.StudyShopApplicationTests;
 import org.example.studyshop.model.entity.User;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -53,7 +55,25 @@ public class UserRepositoryTest extends StudyShopApplicationTests {
                 () -> System.out.println("The id you entered '" + id + "' is not exist user"));
     }
 
+    @Test
+    @Transactional
     public void delete() {
+        Long id = 3L;
+        Optional<User> user = userRepository.findById(id);
+
+        //Assert.assertTrue(user.isPresent()); junit4
+        Assertions.assertTrue(user.isPresent()); // junit5
+
+
+        user.ifPresent(selectUser -> userRepository.delete(selectUser));
+
+        Optional<User> deletedUser = userRepository.findById(id);
+//        if (deletedUser.isPresent()) {
+//            System.out.println("not deleted user : " + deletedUser.get());
+//        } else {
+//            System.out.println("no exist user");
+//        }
+        Assertions.assertFalse(deletedUser.isPresent());
     }
 
 }
