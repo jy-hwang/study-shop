@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 public class UserRepositoryTest extends StudyShopApplicationTests {
 
@@ -16,7 +17,7 @@ public class UserRepositoryTest extends StudyShopApplicationTests {
 
 
     @Test
-    public void create(){
+    public void create() {
         //String sql = insert into user (%s,%s,%d) values(account, email, age);
         User user = new User();
         //user.setId();
@@ -27,17 +28,32 @@ public class UserRepositoryTest extends StudyShopApplicationTests {
         user.setCreatedBy("Admin");
 
         User newUser = userRepository.save(user);
-        System.out.println("newUser : "+newUser);
+        System.out.println("newUser : " + newUser);
     }
 
-    public void read(){
-
+    @Test
+    public void read() {
+        Long id = 4L;
+        Optional<User> user = userRepository.findById(id);
+        user.ifPresentOrElse(selectUser -> System.out.println("user : " + selectUser),
+                () -> System.out.println("The id you entered '" + id + "' is not exist user"));
     }
 
-    public void update(){
-
+    @Test
+    public void update() {
+        Long id = 2L;
+        Optional<User> user = userRepository.findById(id);
+        user.ifPresentOrElse(selectUser -> {
+                    selectUser.setAccount("PPPPP");
+                    selectUser.setUpdatedAt(LocalDateTime.now());
+                    selectUser.setUpdatedBy("Admin");
+                    userRepository.save(selectUser);
+                    System.out.println("user : " + selectUser);
+                },
+                () -> System.out.println("The id you entered '" + id + "' is not exist user"));
     }
 
-    public void delete(){}
+    public void delete() {
+    }
 
 }
