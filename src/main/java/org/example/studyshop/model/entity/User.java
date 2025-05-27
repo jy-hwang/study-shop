@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -34,5 +35,8 @@ public class User {
 
   private String updatedBy;
 
+  // 1 : N ,mappedBy="user" -> OrderDetail Entity 에 있는 User user 를 말함.
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+  private List<OrderDetail> orderDetails;
 
 }

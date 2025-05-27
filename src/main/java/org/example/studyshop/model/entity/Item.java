@@ -25,4 +25,7 @@ public class Item {
 
   private String content;
 
+  // 1 : N
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "item")
+  private List<OrderDetail> orderDetailList;
 }

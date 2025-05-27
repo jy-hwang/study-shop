@@ -39,10 +39,16 @@ public class UserRepositoryTests extends StudyShopApplicationTests {
 
   @Test
   @DisplayName("User Repository Test - read")
+  @Transactional
   public void read() {
     Optional<User> user = userRepository.findById(1L);
 
-    user.ifPresent(System.out::println);
+    user.ifPresent(selectUser -> {
+      selectUser.getOrderDetails().forEach(detail -> {
+        Item item = detail.getItem();
+        System.out.println("item : " + item);
+      });
+    });
   }
 
   @Test
