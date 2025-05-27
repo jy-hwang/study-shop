@@ -10,25 +10,25 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class GetController {
 
-    @GetMapping("/getMethod")
-    public String getRequest() {
+  @GetMapping("/getMethod")
+  public String getRequest() {
 
-        return "Hello World";
-    }
+    return "Hello World";
+  }
 
-    @GetMapping("/getParameter")
-    public String getParameter(@RequestParam String id, @RequestParam(name = "password") String pwd) {
-        System.out.println("id : " + id);
-        System.out.println("pwd : " + pwd);
-        return id + pwd;
-    }
+  @GetMapping("/getParameter")
+  public String getParameter(@RequestParam String id, @RequestParam(name = "password") String pwd) {
+    System.out.println("id : " + id);
+    System.out.println("pwd : " + pwd);
+    return id + pwd;
+  }
 
-    @GetMapping("/getMultiParameter")
-    public SearchParam getMultiParameter(SearchParam searchParam) {
-        System.out.println(searchParam.getAccount());
-        System.out.println(searchParam.getEmail());
-        System.out.println(searchParam.getPage());
-        return searchParam;
-    }
+  @GetMapping("/getMultiParameter")
+  public SearchParam getMultiParameter(SearchParam searchParam) {
+    System.out.println(searchParam.getAccount());
+    System.out.println(searchParam.getEmail());
+    System.out.println(searchParam.getPage());
+    return searchParam;
+  }
 
 }
