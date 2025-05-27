@@ -6,33 +6,23 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Builder
-@Table(name = "app_user")
-public class User {
+public class Item {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  private String account;
+  private String name;
 
-  private String email;
+  private Integer price;
 
-  private String phoneNumber;
-
-  private LocalDateTime createdAt;
-
-  private String createdBy;
-
-  private LocalDateTime updatedAt;
-
-  private String updatedBy;
-
+  private String content;
 
 }
