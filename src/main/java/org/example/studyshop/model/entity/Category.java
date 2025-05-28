@@ -1,40 +1,30 @@
 package org.example.studyshop.model.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
-@Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Data
 @Entity
 @Builder
-public class Item {
+public class Category {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  private String status;
-
-  private String name;
+  private String type;
 
   private String title;
-
-  private String content;
-
-  private Integer price;
-
-  private String brandName;
-
-  private LocalDateTime registeredAt;
-
-  private LocalDateTime unregisteredAt;
 
   private LocalDateTime createdAt;
 
@@ -45,3 +35,4 @@ public class Item {
   private String updatedBy;
 
 }
+

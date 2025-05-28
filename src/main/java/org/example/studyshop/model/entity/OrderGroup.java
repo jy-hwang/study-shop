@@ -17,21 +17,29 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class OrderDetail {
+public class OrderGroup {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
-
-  private LocalDateTime orderAt;
+  private int id;
 
   private String status;
 
-  private LocalDateTime arrivalDate;
+  private String orderType; // 주문의 형태 - 일괄 / 개별
 
-  private Integer quantity;
+  private String revAddress;
+
+  private String revName;
+
+  private String paymentType; // 카드 / 현금
 
   private BigDecimal totalPrice;
+
+  private Integer totalQuantity;
+
+  private LocalDateTime orderAt;
+
+  private LocalDateTime arrivalDate;
 
   private LocalDateTime createdAt;
 
@@ -40,5 +48,4 @@ public class OrderDetail {
   private LocalDateTime updatedAt;
 
   private String updatedBy;
-
 }

@@ -1,36 +1,40 @@
 package org.example.studyshop.model.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
-@Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Data
 @Entity
 @Builder
-public class Item {
+public class AdminUser {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  private String account;
+
+  private String password;
+
   private String status;
 
-  private String name;
+  private String role;
 
-  private String title;
+  private LocalDateTime lastLoginAt;
 
-  private String content;
+  private LocalDateTime passwordUpdatedAt;
 
-  private Integer price;
-
-  private String brandName;
+  private int loginFailCount;
 
   private LocalDateTime registeredAt;
 

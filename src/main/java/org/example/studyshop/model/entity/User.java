@@ -7,14 +7,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Builder
-@Table(name = "app_user")
+@Table(name = "users")
 public class User {
 
   @Id
@@ -23,9 +22,17 @@ public class User {
 
   private String account;
 
+  private String password;
+
+  private String status;
+
   private String email;
 
   private String phoneNumber;
+
+  private LocalDateTime registeredAt;
+
+  private LocalDateTime unregisteredAt;
 
   private LocalDateTime createdAt;
 
@@ -34,9 +41,5 @@ public class User {
   private LocalDateTime updatedAt;
 
   private String updatedBy;
-
-  // 1 : N ,mappedBy="user" -> OrderDetail Entity 에 있는 User user 를 말함.
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-  private List<OrderDetail> orderDetails;
 
 }
