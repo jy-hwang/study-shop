@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @ExtendWith(LoggingTestWatcher.class)
@@ -23,9 +24,16 @@ public class ItemRepositoryTests extends StudyShopApplicationTests {
   public void create() {
     Item item
         = Item.builder()
-        .name("노트북")
-        .price(50000)
-        .content("맥북")
+        .status("UNREGISTERED")
+        .name("삼성 노트북")
+        .title("삼성 노트북 A100")
+        .content("2025년형 노트북 입니다")
+        .price(900000)
+        .brandName("삼성")
+        .registeredAt(LocalDateTime.now())
+        .createdAt(LocalDateTime.now())
+        .createdBy("Partner01")
+        .partnerId(1L)
         .build();
 
     Item newItem = itemRepository.save(item);
