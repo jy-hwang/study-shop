@@ -1,12 +1,11 @@
 package org.example.studyshop.model.entity;
 
 import javax.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -14,6 +13,7 @@ import java.time.LocalDateTime;
 @Entity
 @Builder
 @Table(name = "users")
+@ToString(exclude = {"orderGroupList"})
 public class User {
 
   @Id
@@ -42,4 +42,7 @@ public class User {
 
   private String updatedBy;
 
+  // User 1 : N OrderGroup
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+  private List<OrderGroup> orderGroupList;
 }

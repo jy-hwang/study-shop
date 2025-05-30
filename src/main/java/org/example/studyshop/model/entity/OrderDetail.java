@@ -1,13 +1,8 @@
 package org.example.studyshop.model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import javax.persistence.*;
+
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -17,6 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString(exclude = {"orderGroup"})
 public class OrderDetail {
 
   @Id
@@ -41,5 +37,7 @@ public class OrderDetail {
 
   private Long itemId;
 
-  private Long orderGroupId;
+  // OrderDetail N : 1 OrderGroup
+  @ManyToOne
+  private OrderGroup orderGroup;
 }

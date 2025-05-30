@@ -1,22 +1,19 @@
 package org.example.studyshop.model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import javax.persistence.*;
+
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString(exclude = {"user", "orderDetailList"})
 public class OrderGroup {
 
   @Id
@@ -49,5 +46,11 @@ public class OrderGroup {
 
   private String updatedBy;
 
-  private Long userId;
+  // OrderGroup N : 1 User
+  @ManyToOne
+  private User user;
+
+  // OrderGroup 1 : N OrderDetail
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "orderGroup")
+  private List<OrderDetail> orderDetailList;
 }

@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 @ExtendWith(LoggingTestWatcher.class)
 public class UserRepositoryTests extends StudyShopApplicationTests {
@@ -55,6 +54,22 @@ public class UserRepositoryTests extends StudyShopApplicationTests {
   public void read() {
     User user = userRepository.findFirstByPhoneNumberOrderByIdDesc("010-1234-5678");
 
+    if (user != null) {
+      user.getOrderGroupList().forEach(orderGroup -> {
+        System.out.println("--------------- 주문묶음 ----------------");
+
+        System.out.println("수령인 : " + orderGroup.getRevName());
+        System.out.println("수령지 : " + orderGroup.getRevAddress());
+        System.out.println("총금액 : " + orderGroup.getTotalPrice());
+        System.out.println("총수량 : " + orderGroup.getTotalQuantity());
+
+        orderGroup.getOrderDetailList().forEach(orderDetail -> {
+          System.out.println("--------------- 주문상세 ----------------");
+          System.out.println("주문상태 : " + orderDetail.getStatus());
+          System.out.println("도착 예정일자 : " + orderDetail.getArrivalDate());
+        });
+      });
+    }
     Assertions.assertNotNull(user);
   }
 
