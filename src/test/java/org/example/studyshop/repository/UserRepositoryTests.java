@@ -28,8 +28,6 @@ public class UserRepositoryTests extends StudyShopApplicationTests {
     String email = "Test01@abc.com";
     String phoneNumber = "010-1234-5678";
     LocalDateTime registeredAt = LocalDateTime.now();
-    LocalDateTime createdAt = LocalDateTime.now();
-    String createdBy = "AdminServer";
 
     User user = User.builder()
         .account(account)
@@ -38,8 +36,6 @@ public class UserRepositoryTests extends StudyShopApplicationTests {
         .email(email)
         .phoneNumber(phoneNumber)
         .registeredAt(registeredAt)
-        .createdAt(createdAt)
-        .createdBy(createdBy)
         .build();
 
     User newUser = userRepository.save(user);

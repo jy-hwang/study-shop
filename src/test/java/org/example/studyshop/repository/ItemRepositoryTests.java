@@ -30,8 +30,6 @@ public class ItemRepositoryTests extends StudyShopApplicationTests {
         .price(900000)
         .brandName("삼성")
         .registeredAt(LocalDateTime.now())
-        .createdAt(LocalDateTime.now())
-        .createdBy("Partner01")
         //.partnerId(1L)
         .build();
 

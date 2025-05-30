@@ -27,10 +27,8 @@ public class OrderDetailRepositoryTests extends StudyShopApplicationTests {
         .arrivalDate(LocalDateTime.now().plusDays(2))
         .quantity(1)
         .totalPrice(BigDecimal.valueOf(900000))
-        //.orderGroupId(1L)
-        //.itemId(1L)
-        .createdBy("AdminServer")
-        .createdAt(LocalDateTime.now())
+//        .orderGroupId(1L)
+//        .itemId(1L)
         .build();
     OrderDetail newOrderDetail = orderDetailRepository.save(orderDetail);
 

@@ -20,16 +20,11 @@ public class CategoryRepositoryTests extends StudyShopApplicationTests {
   public void create() {
     String type = "COMPUTER";
     String title = "컴퓨터";
-    LocalDateTime createdAt = LocalDateTime.now();
-
-    String createdBy = "AdminServer";
 
     Category category
         = Category.builder()
         .type(type)
         .title(title)
-        .createdAt(createdAt)
-        .createdBy(createdBy)
         .build();
 
     Category newCategory = categoryRepository.save(category);

@@ -28,9 +28,7 @@ public class OrderGroupRepositoryTests extends StudyShopApplicationTests {
         .totalQuantity(1)
         .orderAt(LocalDateTime.now().minusDays(2))
         .arrivalDate(LocalDateTime.now())
-        .createdAt(LocalDateTime.now())
-        .createdBy("AdminServer")
-        //.userId(1L)
+//        .userId(1L)
         .build();
 
     OrderGroup newOrderGroup = orderGroupRepository.save(orderGroup);

@@ -17,12 +17,10 @@ public class AdminUserRepositoryTests extends StudyShopApplicationTests {
   public void create() {
     AdminUser adminUser
         = AdminUser.builder()
-        .account("admin01")
-        .password("11")
+        .account("admin02")
+        .password("22")
         .status("REGISTERED")
         .role("PARTNER")
-        .createdAt(LocalDateTime.now())
-        .createdBy("AdminServer")
         .build();
 
     AdminUser newAdminUser = adminUserRepository.save(adminUser);
