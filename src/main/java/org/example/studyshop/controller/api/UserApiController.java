@@ -1,5 +1,6 @@
 package org.example.studyshop.controller.api;
 
+import lombok.extern.slf4j.Slf4j;
 import org.example.studyshop.ifs.CrudInterface;
 import org.example.studyshop.model.network.Header;
 import org.example.studyshop.model.network.request.UserApiRequest;
@@ -8,6 +9,7 @@ import org.example.studyshop.service.UserApiLogicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/user")
 public class UserApiController implements CrudInterface<UserApiRequest, UserApiResponse> {
@@ -18,6 +20,7 @@ public class UserApiController implements CrudInterface<UserApiRequest, UserApiR
   @Override
   @PostMapping("") // /api/user
   public Header<UserApiResponse> create(@RequestBody Header<UserApiRequest> userApiRequest) {
+    log.info("Create user api request: {}", userApiRequest);
     return userApiLogicService.create(userApiRequest);
   }
 
