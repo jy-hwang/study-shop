@@ -14,7 +14,7 @@ public class AdminUserRepositoryTests extends StudyShopApplicationTests {
   private AdminUserRepository adminUserRepository;
 
   @Test
-  public void create(){
+  public void create() {
     AdminUser adminUser
         = AdminUser.builder()
         .account("admin01")
