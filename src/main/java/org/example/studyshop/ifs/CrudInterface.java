@@ -2,13 +2,13 @@ package org.example.studyshop.ifs;
 
 import org.example.studyshop.model.network.Header;
 
-public interface CrudInterface {
+public interface CrudInterface<Req, Res> {
 
-  Header create(); // todo request object 추가
+  Header<Res> create(Header<Req> request); // todo request object 추가
 
-  Header read(Long id);
+  Header<Res> read(Long id);
 
-  Header update();
+  Header<Res> update(Header<Req> request);
 
   Header delete(Long id);
 }
