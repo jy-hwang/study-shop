@@ -78,7 +78,6 @@ CREATE TABLE `order_detail`
 (
   `id`             bigint(20) NOT NULL AUTO_INCREMENT,
   `status`         varchar(50)        DEFAULT NULL,
-  `name`           varchar(100)       DEFAULT NULL,
   `arrival_date`   datetime NULL DEFAULT NULL,
   `quantity`       int                DEFAULT 0,
   `total_price`    decimal(12, 4)     DEFAULT 0,

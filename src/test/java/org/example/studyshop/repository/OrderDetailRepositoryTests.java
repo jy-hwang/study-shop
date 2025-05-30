@@ -10,9 +10,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@DataJpaTest
 @ExtendWith(LoggingTestWatcher.class)
 public class OrderDetailRepositoryTests extends StudyShopApplicationTests {
 
@@ -24,11 +24,18 @@ public class OrderDetailRepositoryTests extends StudyShopApplicationTests {
   public void create() {
     OrderDetail orderDetail
         = OrderDetail.builder()
-        .orderAt(LocalDateTime.now())
+        .status("WAITING")
+        .arrivalDate(LocalDateTime.now().plusDays(2))
+        .quantity(1)
+        .totalPrice(BigDecimal.valueOf(900000))
+        .orderGroupId(1L)
+        .itemId(1L)
+        .createdBy("AdminServer")
+        .createdAt(LocalDateTime.now())
         .build();
-    OrderDetail orderDetail1 = orderDetailRepository.save(orderDetail);
+    OrderDetail newOrderDetail = orderDetailRepository.save(orderDetail);
 
-    Assertions.assertNotNull(orderDetail1);
+    Assertions.assertNotNull(newOrderDetail);
   }
 
 }
