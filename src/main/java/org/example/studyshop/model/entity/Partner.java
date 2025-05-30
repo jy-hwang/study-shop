@@ -16,6 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Builder
+@ToString(exclude = {"itemList", "category"})
 public class Partner {
 
   @Id
@@ -48,5 +49,11 @@ public class Partner {
 
   private String updatedBy;
 
-  private Long categoryId;
+  // Partner N : 1 Category
+  @ManyToOne
+  private Category category;
+
+  // Partner 1 : N Item
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "partner")
+  private List<Item> itemList;
 }

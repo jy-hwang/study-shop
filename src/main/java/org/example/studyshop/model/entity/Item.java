@@ -14,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Builder
+@ToString(exclude = {"orderDetailList", "partner"})
 public class Item {
 
   @Id
@@ -44,5 +45,11 @@ public class Item {
 
   private String updatedBy;
 
-  private Long partnerId;
+  // Item N : 1 Partner
+  @ManyToOne
+  private Partner partner;
+
+  // Item 1 : N OrderDetail
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "item")
+  private List<OrderDetail> orderDetailList;
 }

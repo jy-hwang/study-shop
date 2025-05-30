@@ -16,6 +16,7 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @Builder
+@ToString(exclude = {"partnerList"})
 public class Category {
 
   @Id
@@ -34,5 +35,8 @@ public class Category {
 
   private String updatedBy;
 
+  // Category 1 : N Partner
+  @OneToMany(fetch = FetchType.LAZY)
+  private List<Partner> partnerList;
 }
 

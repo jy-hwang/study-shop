@@ -38,7 +38,7 @@ public class PartnerRepositoryTests extends StudyShopApplicationTests {
         .registeredAt(registeredAt)
         .createdAt(createdAt)
         .createdBy(createdBy)
-        .categoryId(categoryId)
+        //.categoryId(categoryId)
         .build();
 
     Partner newPartner = partnerRepository.save(partner);

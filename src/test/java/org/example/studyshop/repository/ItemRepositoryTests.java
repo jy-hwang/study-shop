@@ -4,7 +4,6 @@ import org.example.studyshop.StudyShopApplicationTests;
 import org.example.studyshop.model.entity.Item;
 import org.example.studyshop.util.LoggingTestWatcher;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -33,7 +32,7 @@ public class ItemRepositoryTests extends StudyShopApplicationTests {
         .registeredAt(LocalDateTime.now())
         .createdAt(LocalDateTime.now())
         .createdBy("Partner01")
-        .partnerId(1L)
+        //.partnerId(1L)
         .build();
 
     Item newItem = itemRepository.save(item);
