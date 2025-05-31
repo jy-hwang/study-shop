@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
@@ -27,7 +28,7 @@ public class ItemRepositoryTests extends StudyShopApplicationTests {
         .name("삼성 노트북")
         .title("삼성 노트북 A100")
         .content("2025년형 노트북 입니다")
-        .price(900000)
+        .price(BigDecimal.valueOf(900000))
         .brandName("삼성")
         .registeredAt(LocalDateTime.now())
         //.partnerId(1L)
