@@ -2,6 +2,7 @@ package org.example.studyshop.model.entity;
 
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.example.studyshop.model.enumClass.PartnerStatus;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -28,7 +29,8 @@ public class Partner {
 
   private String name;
 
-  private String status;
+  @Enumerated(EnumType.STRING)
+  private PartnerStatus status;
 
   private String address;
 
