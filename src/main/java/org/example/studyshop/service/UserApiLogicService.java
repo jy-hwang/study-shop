@@ -1,20 +1,17 @@
 package org.example.studyshop.service;
 
-import org.example.studyshop.ifs.CrudInterface;
 import org.example.studyshop.model.entity.User;
 import org.example.studyshop.model.enumClass.UserStatus;
 import org.example.studyshop.model.network.Header;
 import org.example.studyshop.model.network.request.UserApiRequest;
 import org.example.studyshop.model.network.response.UserApiResponse;
-import org.example.studyshop.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
-public class UserApiLogicService extends  BaseService<UserApiRequest, UserApiResponse, User> {
+public class UserApiLogicService extends BaseService<UserApiRequest, UserApiResponse, User> {
   /**
    * 1. request data
    * 2. user 생성

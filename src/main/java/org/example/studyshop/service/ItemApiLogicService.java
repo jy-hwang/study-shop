@@ -1,11 +1,9 @@
 package org.example.studyshop.service;
 
-import org.example.studyshop.ifs.CrudInterface;
 import org.example.studyshop.model.entity.Item;
 import org.example.studyshop.model.network.Header;
 import org.example.studyshop.model.network.request.ItemApiRequest;
 import org.example.studyshop.model.network.response.ItemApiResponse;
-import org.example.studyshop.repository.ItemRepository;
 import org.example.studyshop.repository.PartnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

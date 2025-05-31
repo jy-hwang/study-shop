@@ -1,11 +1,9 @@
 package org.example.studyshop.service;
 
-import org.example.studyshop.ifs.CrudInterface;
 import org.example.studyshop.model.entity.OrderGroup;
 import org.example.studyshop.model.network.Header;
 import org.example.studyshop.model.network.request.OrderGroupApiRequest;
 import org.example.studyshop.model.network.response.OrderGroupApiResponse;
-import org.example.studyshop.repository.OrderGroupRepository;
 import org.example.studyshop.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
