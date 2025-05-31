@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.studyshop.model.enumClass.OrderGroupStatus;
 import org.example.studyshop.model.enumClass.OrderType;
 import org.example.studyshop.model.enumClass.PaymentType;
 
@@ -17,7 +18,7 @@ import java.time.LocalDateTime;
 public class OrderGroupApiRequest {
   private Long id;
 
-  private String status;
+  private OrderGroupStatus status;
 
   private OrderType orderType;
 
