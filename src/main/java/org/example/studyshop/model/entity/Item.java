@@ -2,6 +2,7 @@ package org.example.studyshop.model.entity;
 
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.example.studyshop.model.enumClass.ItemStatus;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -27,7 +28,8 @@ public class Item {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  private String status;
+  @Enumerated(EnumType.STRING)
+  private ItemStatus status; // 등록 / 해지 / 검수중(등록대기중)
 
   private String name;
 
