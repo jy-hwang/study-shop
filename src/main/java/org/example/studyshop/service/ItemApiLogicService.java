@@ -10,7 +10,6 @@ import org.example.studyshop.repository.PartnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Service
@@ -45,7 +44,10 @@ public class ItemApiLogicService implements CrudInterface<ItemApiRequest, ItemAp
 
   @Override
   public Header<ItemApiResponse> read(Long id) {
-    return null;
+
+    return itemRepository.findById(id).map(item ->
+        response(item)
+    ).orElseGet(() -> Header.ERROR("데이터 없음"));
   }
 
   @Override
@@ -58,7 +60,7 @@ public class ItemApiLogicService implements CrudInterface<ItemApiRequest, ItemAp
     return null;
   }
 
-  private Header<ItemApiResponse> response(Item item){
+  private Header<ItemApiResponse> response(Item item) {
     ItemApiResponse body
         = ItemApiResponse.builder()
         .id(item.getId())

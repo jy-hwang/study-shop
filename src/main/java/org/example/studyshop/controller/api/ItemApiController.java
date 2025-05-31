@@ -1,5 +1,6 @@
 package org.example.studyshop.controller.api;
 
+import lombok.extern.slf4j.Slf4j;
 import org.example.studyshop.ifs.CrudInterface;
 import org.example.studyshop.model.network.Header;
 import org.example.studyshop.model.network.request.ItemApiRequest;
@@ -26,7 +27,8 @@ public class ItemApiController implements CrudInterface<ItemApiRequest, ItemApiR
   @Override
   @GetMapping("{id}") // /api/item/1 ... 1000
   public Header<ItemApiResponse> read(@PathVariable Long id) {
-    return null;
+    log.info("Read Item by id: {}", id);
+    return itemApiLogicService.read(id);
   }
 
   @Override
