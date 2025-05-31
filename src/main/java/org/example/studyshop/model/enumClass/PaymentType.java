@@ -10,7 +10,7 @@ public enum PaymentType {
   BANK(1, "무통장입금", "무통장입금"),
   ETC(2, "기타", "간편결제 등");
 
-  private int id;
-  private String title;
-  private String description;
+  private final int id;
+  private final String title;
+  private final String description;
 }

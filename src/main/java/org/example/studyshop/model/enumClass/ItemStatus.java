@@ -10,7 +10,7 @@ public enum ItemStatus {
   UNREGISTERED(1, "해지", "상품 해지 상태"),
   WAITING(2, "검수(대기)", "상품 검수 상태");
 
-  private int id;
-  private String title;
-  private String description;
+  private final int id;
+  private final String title;
+  private final String description;
 }

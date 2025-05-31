@@ -11,7 +11,7 @@ public enum OrderGroupStatus {
   SHIPPING(2, "배송중", "배송 중 상태"),
   DELIVERED(3, "배송완료", "배송 완료 상태");
 
-  private int id;
-  private String title;
-  private String description;
+  private final int id;
+  private final String title;
+  private final String description;
 }
